@@ -8,14 +8,35 @@ $ pip install white-rabbit
 
 ## usage
 ``` python
-# to-do a awesome usage example
+import logging
+import time
+from white_rabbit.stopwatch import stopwatch
+
+logging.basicConfig(level=logging.INFO)
+
+
+@stopwatch(logger=logging)
+def my_function():
+    time.sleep(1)
+    print("My function was executed.")
+
+
+my_function()
+```
+
+---
+And the output should be like
+```
+INFO:root:Running my_function...
+INFO:root:my_function took 1.00473 seconds to run.
+My function was executed.
 ```
 
 ## LICENSE
 ```
 MIT License
 
-Copyright (c) 2018 João Freitas
+Copyright (c) 2023 João Freitas
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
